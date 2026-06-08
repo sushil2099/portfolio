@@ -1,126 +1,116 @@
-/* ===== THEME VARIABLES ===== */
 :root {
-  --bg: #0d1117;          /* Aerospace base */
-  --card: #161b22;
-  --text: #c9d1d9;
-  --muted: #8b949e;
-  --accent: #4fc3f7;     /* Cloud blue */
-  --gold: #c9a44c;       /* Executive gold */
-}
-
-/* ===== GLOBAL ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --bg:#0d1117;
+  --card:#161b22;
+  --text:#c9d1d9;
+  --muted:#8b949e;
+  --accent:#4fc3f7;
+  --gold:#c9a44c;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Segoe UI", Tahoma, sans-serif;
-  line-height: 1.6;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Segoe UI, sans-serif;
 }
 
-/* ===== HERO ===== */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(
-    180deg,
-    #0d1117 0%,
-    #111827 100%
-  );
+.layout {
+  display:flex;
+}
+
+/* LEFT */
+.left-panel {
+  width:30%;
+  min-height:100vh;
+  background:#0b1220;
+  padding:30px;
+  position:sticky;
+  top:0;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid var(--gold);
-  object-fit: cover;
-  margin-bottom: 20px;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:3px solid var(--gold);
+  display:block;
+  margin:0 auto 20px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: var(--accent);
+.left-panel h1 {
+  text-align:center;
+  color:var(--accent);
 }
 
 .role {
-  margin-top: 10px;
-  font-size: 1.1rem;
+  text-align:center;
+  color:var(--muted);
 }
 
-.tagline {
-  margin-top: 8px;
-  color: var(--muted);
+.info p {
+  font-size:0.9rem;
+  margin:6px 0;
 }
 
-/* ===== SECTIONS ===== */
+.domain-card {
+  margin-top:15px;
+  padding:10px;
+  background:var(--card);
+  border-left:4px solid var(--accent);
+  border-radius:6px;
+}
+
+/* RIGHT */
+.right-panel {
+  width:70%;
+  padding:40px;
+}
+
 .section {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
+  margin-bottom:50px;
 }
 
 .section h2 {
-  color: var(--gold);
-  margin-bottom: 15px;
-  border-bottom: 1px solid #30363d;
-  padding-bottom: 5px;
+  color:var(--gold);
+  border-bottom:1px solid #30363d;
+  padding-bottom:6px;
 }
 
-/* ===== CARDS ===== */
 .card {
-  background: var(--card);
-  padding: 22px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  border-left: 4px solid var(--accent);
-}
-
-.card h3 {
-  color: var(--accent);
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+  border-left:4px solid var(--accent);
 }
 
 .company {
-  display: block;
-  color: var(--gold);
-  margin-top: 5px;
+  display:block;
+  color:var(--gold);
+  margin-top:4px;
 }
 
 .duration {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 10px;
+  font-size:0.85rem;
+  color:var(--muted);
 }
 
-.card ul {
-  padding-left: 20px;
-}
-
-/* ===== SKILLS ===== */
 .skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .skills span {
-  background: var(--card);
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid #30363d;
+  background:var(--card);
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:0.85rem;
 }
 
-/* ===== FOOTER ===== */
 footer {
-  text-align: center;
-  padding: 30px 10px;
-  color: var(--muted);
-  border-top: 1px solid #30363d;
-  margin-top: 60px;
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #30363d;
+  color:var(--muted);
 }
