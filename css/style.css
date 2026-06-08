@@ -1,40 +1,126 @@
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #0d1117;          /* Aerospace base */
+  --card: #161b22;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #4fc3f7;     /* Cloud blue */
+  --gold: #c9a44c;       /* Executive gold */
+}
+
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(
+    180deg,
+    #0d1117 0%,
+    #111827 100%
+  );
+}
+
 .profile-pic {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  border: 3px solid var(--gold);
   object-fit: cover;
   margin-bottom: 20px;
-  border: 3px solid #58a6ff;
 }
 
-.title {
-  font-size: 1.1rem;
+.hero h1 {
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+.role {
   margin-top: 10px;
+  font-size: 1.1rem;
 }
 
-.subtitle {
-  color: #8b949e;
-  margin-top: 5px;
+.tagline {
+  margin-top: 8px;
+  color: var(--muted);
 }
 
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 5px;
+}
+
+/* ===== CARDS ===== */
 .card {
-  background: #161b22;
-  padding: 20px;
-  border-radius: 8px;
+  background: var(--card);
+  padding: 22px;
+  border-radius: 10px;
   margin-bottom: 25px;
+  border-left: 4px solid var(--accent);
+}
+
+.card h3 {
+  color: var(--accent);
 }
 
 .company {
-  color: #58a6ff;
-  font-weight: 500;
+  display: block;
+  color: var(--gold);
+  margin-top: 5px;
 }
 
 .duration {
+  display: block;
   font-size: 0.9rem;
-  color: #8b949e;
+  color: var(--muted);
   margin-bottom: 10px;
 }
 
 .card ul {
   padding-left: 20px;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills span {
+  background: var(--card);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid #30363d;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: var(--muted);
+  border-top: 1px solid #30363d;
+  margin-top: 60px;
 }
