@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sushil Kumar | Senior Lead Engineer (Avionics)</title>
+  <title>Sushil Kumar | Senior Lead Engineer (Digital Engineering Solutions)</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -119,6 +119,13 @@
     </nav>
 
   </aside>
+
+  <!-- Mobile Menu Toggle -->
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <!-- ═══════════════════════════════════════
        RIGHT PANEL — scrollable main content
@@ -478,23 +485,48 @@
 </div><!-- end .site-wrapper -->
 
 <script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const leftPanel = document.querySelector('.left-panel');
+  
+  menuToggle?.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    leftPanel.classList.toggle('active');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (leftPanel.classList.contains('active') && 
+        !leftPanel.contains(e.target) && 
+        e.target !== menuToggle) {
+      menuToggle.classList.remove('active');
+      leftPanel.classList.remove('active');
+    }
+  });
+
   // Animate skill bars on scroll
   const fills = document.querySelectorAll('.sb-fill');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.style.width = e.target.style.getPropertyValue('--w');
+        e.target.classList.add('animate');
         io.unobserve(e.target);
       }
     });
   }, { threshold: 0.2 });
-  fills.forEach(f => { f.style.width = '0'; io.observe(f); });
+  fills.forEach(f => { io.observe(f); });
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      const target = document.querySelector(a.getAttribute('href'));
+      target?.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu on nav click
+      if (window.innerWidth <= 820) {
+        menuToggle.classList.remove('active');
+        leftPanel.classList.remove('active');
+      }
     });
   });
 
@@ -505,6 +537,13 @@
     let cur = '';
     secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
     navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  });
+
+  // Parallax effect for background
+  window.addEventListener('mousemove', (e) => {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    document.body.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
   });
 </script>
 
